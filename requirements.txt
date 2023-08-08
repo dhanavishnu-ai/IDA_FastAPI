@@ -1,0 +1,13 @@
+langchain==0.0.153 
+gpt-index==0.4.40 
+llama-index==0.4.33 
+transformers 
+torch
+gradio 
+pytesseract 
+PyMuPDF
+sentence_transformers
+git+https://github.com/huggingface/transformers
+moviepy
+ffmpeg-python
+tabulate
