@@ -11,3 +11,4 @@ git+https://github.com/huggingface/transformers
 moviepy
 ffmpeg-python
 tabulate
+pylibscrypt
