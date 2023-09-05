@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'docquest'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8936CC8619EE4B809CD8A55FE06A5E40 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A05690E1DF9D401C85E838BE140BB2E1 }}
