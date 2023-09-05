@@ -164,5 +164,5 @@ with gr.Blocks() as demo:
       
 
 demo.queue().launch(debug = True, 
-                    auth=("username", "password"),server_name="0.0.0.0"
+                    auth=("username", "password"),server_name="0.0.0.0", server_port=7000
 )
