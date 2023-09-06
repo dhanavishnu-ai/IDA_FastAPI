@@ -12,3 +12,4 @@ moviepy
 ffmpeg-python
 tabulate
 pylibscrypt
+imageio-ffmpeg
