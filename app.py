@@ -163,4 +163,4 @@ with gr.Blocks() as demo:
         clear.click(lambda: None, None, chatbot)
       
 
-demo.queue().launch(debug = True,server_name="0.0.0.0", server_port=8000)
+# demo.queue().launch(debug = True,server_name="0.0.0.0", server_port=8000)
