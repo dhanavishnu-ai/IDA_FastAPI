@@ -13,3 +13,6 @@ ffmpeg-python
 tabulate
 pylibscrypt
 imageio-ffmpeg
+fastapi
+uvicorn
+gunicorn
