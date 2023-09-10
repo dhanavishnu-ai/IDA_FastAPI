@@ -1,3 +1,7 @@
 grad
 gunicorn.conf.py
 startup.sh
+.vscode
+__pycache__
+gunicorn.conf.py
+startup.sh
