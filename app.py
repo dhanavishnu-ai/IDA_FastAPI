@@ -12,8 +12,8 @@ from PIL import Image
 import fitz
 from llama_index import Document
 import os
-from langchain.document_loaders import CSVLoader
-import moviepy.editor as mp
+# from langchain.document_loaders import CSVLoader
+# import moviepy.editor as mp
 
 #initlizing
 class FlanLLM(LLM):
