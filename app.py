@@ -17,7 +17,7 @@ import moviepy.editor as mp
 
 #initlizing
 class FlanLLM(LLM):
-    model_name = "google/flan-t5-large"
+    model_name = "google/flan-t5-small"
     pipeline = pipeline("text2text-generation", model=model_name)
 
     def _call(self, prompt, stop=None):
@@ -33,7 +33,7 @@ llm_predictor = LLMPredictor(llm=FlanLLM())
 hfemb = HuggingFaceEmbeddings()
 embed_model = LangchainEmbedding(hfemb)
 #audio to text conversion
-whisper = pipeline('automatic-speech-recognition', model = 'openai/whisper-medium')
+# whisper = pipeline('automatic-speech-recognition', model = 'openai/whisper-medium')
 
 # set number of output tokens
 num_output = 250
@@ -97,10 +97,10 @@ def find_file_type(input,file):
           text=read_image_file(file)
         elif file_extension.lower()=='.pdf':
           text=read_pdf(file)
-        elif file_extension.lower() in ['.mp3','.wav','.m4a']:
-          text = transcribe2(file.name)
-        elif file_extension=='.mp4':
-          text = video(file.name)
+        # elif file_extension.lower() in ['.mp3','.wav','.m4a']:
+        #   text = transcribe2(file.name)
+        # elif file_extension=='.mp4':
+        #   text = video(file.name)
         else:
           text='Try with Text, Image and PDF Document only.'  
         return text
@@ -111,22 +111,22 @@ def get_history(history):
       file.write(c[0]+':'+c[1]+'\n')
   return 'Chat_Histroy.txt'
 
-def transcribe2(audio):
-    text = whisper(audio)
-    build_the_bot(text['text'])
-    return text['text']
+# def transcribe2(audio):
+#     text = whisper(audio)
+#     build_the_bot(text['text'])
+#     return text['text']
 
-def video(file):
-  clip = mp.VideoFileClip(file)
-  clip.audio.write_audiofile('audio.wav')
-  text = whisper('audio.wav')
-  build_the_bot(text['text'])
-  return text['text']
+# def video(file):
+#   clip = mp.VideoFileClip(file)
+#   clip.audio.write_audiofile('audio.wav')
+#   text = whisper('audio.wav')
+#   build_the_bot(text['text'])
+#   return text['text']
 
 #Gradio
 with gr.Blocks() as demo:
     f=0
-    gr.Markdown('# <center>INTELLIGENT ANALYSIS OF WEBSITE DRIVEN QA CHATBOT</center>')
+    gr.Markdown('# <center>INTELLIGENT ANALYSIS OF DOCUMENT DRIVEN QA CHATBOT</center>')
     with gr.Column(variant="panel"):
       gr.Markdown("## Feed the Bot ")
       with gr.Row(variant="compact"):    
@@ -161,6 +161,5 @@ with gr.Blocks() as demo:
         get.click(get_history,chatbot,outputs)
         
         clear.click(lambda: None, None, chatbot)
-      
 
-# demo.queue().launch(debug = True,server_name="0.0.0.0", server_port=8000)
+    demo.queue(max_size=200)
