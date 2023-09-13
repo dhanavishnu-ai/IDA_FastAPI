@@ -7,9 +7,10 @@ gradio
 pytesseract 
 PyMuPDF
 sentence_transformers
-git+https://github.com/huggingface/transformers
-moviepy
-ffmpeg-python
 tabulate
-pylibscrypt
-imageio-ffmpeg
+
+fastapi
+uvicorn
+gunicorn
+jinja2
+python-multipart
