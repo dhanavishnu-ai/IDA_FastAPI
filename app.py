@@ -29,9 +29,12 @@ class FlanLLM(LLM):
     def _llm_type(self):
         return "custom"
 
-llm_predictor = LLMPredictor(llm=FlanLLM())
-hfemb = HuggingFaceEmbeddings()
-embed_model = LangchainEmbedding(hfemb)
+def initialize():
+  global llm_predictor, embed_model
+  llm_predictor = LLMPredictor(llm=FlanLLM())
+  hfemb = HuggingFaceEmbeddings()
+  embed_model = LangchainEmbedding(hfemb)
+
 #audio to text conversion
 # whisper = pipeline('automatic-speech-recognition', model = 'openai/whisper-medium')
 
@@ -143,6 +146,9 @@ with gr.Blocks() as demo:
           placeholder="Start Building the Bot to view the content")
       text_button = gr.Button("Build the Bot!!!")
       text_button.click(find_file_type, [input,files], text_output)
+
+      text_button = gr.Button("Configure")
+      text_button.click(initialize,None,None)
       
       gr.Markdown("# <hr><center>Knowledge Bot</center>")
       gr.Markdown("### Chat with our Knowledge Bot and get answer for your queries")
