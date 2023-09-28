@@ -71,13 +71,13 @@ def chat(chat_history, user_input):
 def read_text_file(file):
     with open(file.name, "r") as f:
         text = f.read()
-        build_the_bot(text)
+        # build_the_bot(text)
     return text
 
 def read_image_file(file):
     print(file.name)
     text = pytesseract.image_to_string(Image.open(file.name))
-    build_the_bot(text)
+    # build_the_bot(text)
     return text
 
 def read_pdf(file):
@@ -85,12 +85,13 @@ def read_pdf(file):
   text = ""
   for page in doc:
     text+=page.get_text()
-  build_the_bot(text)
+  # build_the_bot(text)
   return text
 
 def find_file_type(input,file):
     if input:
-      return build_the_bot(input)
+       return
+      # return build_the_bot(input)
     
     if file:
         filename, file_extension = os.path.splitext(file.name)
